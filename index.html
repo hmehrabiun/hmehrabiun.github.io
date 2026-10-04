@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hourieh Mehrabiun</title>
+<meta name="description" content="Hourieh Mehrabiun — algorithms and computational social choice, with a focus on dynamic and strategyproof rank aggregation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAFBFC; --ink:#1D2433; --text:#30363F; --muted:#626B78;
+  --accent:#2C6A86; --rule:#DCE1E7; --line1:#9FB3C2; --line2:#C4CFD8;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#151A22; --ink:#E9EDF2; --text:#CDD4DD; --muted:#98A2AF;
+    --accent:#7FB6D1; --rule:#2B333F; --line1:#4C6273; --line2:#36444F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#151A22; --ink:#E9EDF2; --text:#CDD4DD; --muted:#98A2AF;
+  --accent:#7FB6D1; --rule:#2B333F; --line1:#4C6273; --line2:#36444F;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0; background:var(--paper); color:var(--text);
+  font-family:"Literata",Georgia,"Times New Roman",serif;
+  font-size:1.0625rem; line-height:1.7;
+}
+main{max-width:44rem; margin:0 auto; padding:3.5rem 1.5rem 4rem}
+header{display:grid; grid-template-columns:1fr auto; gap:1.5rem; align-items:end;
+  padding-bottom:2rem; border-bottom:1px solid var(--rule)}
+h1{font-weight:500; font-size:2.6rem; line-height:1.1; color:var(--ink); margin:0 0 .6rem; letter-spacing:-.01em}
+.role{margin:0; color:var(--muted); font-size:1rem; line-height:1.55}
+.motif{width:150px; height:auto; display:block}
+.motif .w{fill:none; stroke-width:2; stroke-linecap:round}
+.motif .w1{stroke:var(--line1)} .motif .w2{stroke:var(--line2)}
+.motif .c{fill:none; stroke:var(--accent); stroke-width:2.5; stroke-linecap:round}
+.motif circle{fill:var(--accent)}
+h2{font-weight:600; font-size:1.2rem; color:var(--ink); margin:2.6rem 0 .8rem}
+p{margin:0 0 1rem}
+a{color:var(--accent); text-decoration-thickness:1px; text-underline-offset:.18em}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:2px}
+ul.plain{list-style:none; padding:0; margin:0}
+.entry{margin:0 0 1.15rem}
+.entry .t{color:var(--ink)}
+.entry .m{color:var(--muted); font-size:.95rem; display:block}
+.year{display:inline-block; min-width:5.6rem; color:var(--muted); font-variant-numeric:tabular-nums}
+.edu li{display:flex; gap:.5rem; margin-bottom:.9rem}
+.edu .year{flex:none}
+.note{color:var(--muted); font-size:.95rem; font-style:italic}
+footer{margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.9rem}
+@media (max-width:560px){
+  main{padding-top:2.2rem}
+  h1{font-size:2.1rem}
+  header{grid-template-columns:1fr}
+  .motif{width:120px; order:-1}
+  .edu li{flex-direction:column; gap:0}
+}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div>
+    <h1>Hourieh Mehrabiun</h1>
+    <p class="role">Postdoctoral researcher<br>Institute for Research in Fundamental Sciences (IPM), Tehran</p>
+  </div>
+  <!-- Three input rankings (grey) crossing over and settling into one consensus order (accent). -->
+  <svg class="motif" viewBox="0 0 150 96" role="img" aria-label="Several rankings merging into one">
+    <path class="w w1" d="M6 12 C40 12, 50 70, 84 70"/>
+    <path class="w w2" d="M6 30 C40 30, 50 12, 84 12"/>
+    <path class="w w1" d="M6 48 C40 48, 50 84, 84 84"/>
+    <path class="w w2" d="M6 66 C40 66, 50 30, 84 30"/>
+    <path class="w w1" d="M6 84 C40 84, 50 48, 84 48"/>
+    <path class="c" d="M84 12 H144"/><path class="c" d="M84 30 H144"/>
+    <path class="c" d="M84 48 H144"/><path class="c" d="M84 70 H144"/>
+    <path class="c" d="M84 84 H144"/>
+    <circle cx="84" cy="12" r="3"/><circle cx="84" cy="30" r="3"/>
+    <circle cx="84" cy="48" r="3"/><circle cx="84" cy="70" r="3"/><circle cx="84" cy="84" r="3"/>
+  </svg>
+</header>
+
+<section>
+  <h2>About</h2>
+  <p>I work on algorithms and computational social choice. My research centres on rank aggregation: how to combine many individual rankings into a single consensus ranking, efficiently and with provable quality guarantees. I am particularly interested in the dynamic setting, where the input rankings change over time and the consensus must be maintained without recomputation from scratch, and in the strategic setting, where voters may misreport their preferences and the aggregation rule should remain approximately optimal while being strategyproof.</p>
+</section>
+
+
+<section>
+  <h2>Research interests</h2>
+  <p>Rank aggregation; computational social choice; dynamic algorithms; approximation algorithms; mechanism design without money.</p>
+</section>
+
+<section>
+  <h2>Publications</h2>
+  <ul class="plain">
+    <li class="entry">
+      <span class="t">Efficient Dynamic Rank Aggregation.</span>
+      <span class="m">Morteza Alimi, Hourieh Mehrabiun, and Alireza Zarei. <em>International Journal of Web Information Systems</em>, Emerald, 2026.
+      <a href="https://doi.org/10.1108/ijwis-07-2025-0190">DOI</a></span>
+    </li>
+    <li class="entry">
+      <span class="t">Personalized Privacy Preserving Method for Social Networks Graph k-Anonymization.</span>
+      <span class="m">Hourie Mehrabiun and Behnaz Omoomi. <em>Computer and Knowledge Engineering</em> 6(1), pp. 37–46, 2023.
+      <a href="https://doi.org/10.22067/cke.2023.63240.0">DOI</a></span>
+    </li>
+    <li class="entry">
+      <span class="t">A Graph Theoretic Approach for Employee Performance Appraisal.</span>
+      <span class="m">Alireza Zarei and Hourie Mehrabiun. <em>Modern Research in Decision Making</em> 6(4), pp. 131–157, 2021 (in Persian).
+      <a href="https://journal.saim.ir/article_248537.html">Link</a></span>
+    </li>
+  </ul>
+
+</section>
+
+<section>
+  <h2>Education</h2>
+  <ul class="plain edu">
+    <li><span class="year">PhD</span>
+      <span>Computer Science, Sharif University of Technology, Tehran. Thesis: <em>Dynamic Rank Aggregation</em>; supervisor Dr. Alireza Zarei.</span></li>
+    <li><span class="year">MS</span>
+      <span>Isfahan University of Technology, Isfahan; supervisor Dr. Behnaz Omoomi.</span></li>
+  </ul>
+</section>
+
+<footer>Last updated October 2026.</footer>
+</main>
+</body>
+</html>
